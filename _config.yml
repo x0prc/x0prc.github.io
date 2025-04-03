@@ -1,23 +1,10 @@
-title: "PRC's Portfolio"
-email: "c0ldheat@protonmail.com"
-description: "A showcase of my projects documenting my journey."
-url: "https://x0prc.github.io" 
+title: PRC's Portfolio
 baseurl: ""
-repository: "x0prc/x0prc.github.io"
-twitter_username: x0prc
-github_username: x0prc
-minimal_mistakes_skin: "dark" 
-search: true
-codeenable_copy_code_button: true
+url: "https://x0prc.github.io"
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
-permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
+theme: minima
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
-  - jemoji
-  - jekyll-include-cache
+exclude:
+  - Gemfile
+  - Gemfile.lock
