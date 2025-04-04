@@ -1,35 +1,36 @@
 ---
 layout: default
-title: PRC's Portfolio
+title: Portfolio
 ---
 
-# Welcome to my Portfolio
+{% include nav.html %}
 
 <div class="bento-grid">
-  <div class="bento-card">
-    <h2>About Me</h2>
-    <p>CSE Undergrad Student @ GGSIPU, New Delhi, India</p>
-  </div>
+  {% for category in site.data.grid.categories %}
+  <div class="category-card" style="border-left: 5px solid {{ category.color }}">
+    <h2>{{ category.icon }} {{ category.title }}</h2>
 
-  <div class="bento-card">
-    <h2>Latest Work</h2>
-    <ul>
-      <li>Project 1</li>
-      <li>Project 2</li>
-    </ul>
-  </div>
+    {% if category.collection %}
+      {% assign items = site[category.collection] | sort: 'date' | reverse %}
+      {% for item in items limit:3 %}
+      <div class="entry">
+        <h3>{{ item.title }}</h3>
+        <div class="meta">
+          {% if item.company %}{{ item.company }} •{% endif %}
+          {% if item.duration %}{{ item.duration }}{% else %}{{ item.date | date: "%Y" }}{% endif %}
+        </div>
+        {{ item.excerpt }}
+      </div>
+      {% endfor %}
+      <a href="/{{ category.collection }}" class="see-more">View all {{ category.collection }} →</a>
 
-  <div class="bento-card">
-    <h2>Contact</h2>
-    <p>Email: c0ldheat@protonmail.com</p>
+    {% elsif category.items %}
+      <ul>
+        {% for item in category.items %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   </div>
-
-  <div class="bento-card">
-    <h2>Skills</h2>
-    <div class="skill-chart">
-      <div class="skill-bar" style="width: 80%">Penetration Testing</div>
-      <div class="skill-bar" style="width: 65%">Web Security</div>
-    </div>
-  </div>
+  {% endfor %}
 </div>
-

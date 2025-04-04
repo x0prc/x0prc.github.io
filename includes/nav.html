@@ -1,1 +1,53 @@
-<!DOCTYPE html>
+<nav class="site-nav">
+    <div class="nav-container">
+        <a href="{{ '/' | relative_url }}" class="nav-brand">Portfolio</a>
+        <div class="nav-links">
+            <a href="{{ '/' | relative_url }}" class="nav-link">🏠 Home</a>
+            <a href="/projects" class="nav-link">🎯 Projects</a>
+            <a href="/experience" class="nav-link">💼 Experience</a>
+            <a href="/education" class="nav-link">🎓 Education</a>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .site-nav {
+        background: var(--primary);
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-brand {
+        color: white;
+        font-size: 1.5rem;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-link {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-link:hover {
+        color: white;
+        transform: translateY(-2px);
+    }
+</style>

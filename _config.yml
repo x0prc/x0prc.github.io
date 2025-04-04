@@ -1,10 +1,27 @@
-title: PRC's Portfolio
-baseurl: ""
-url: "https://x0prc.github.io"
-markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
-exclude:
-  - Gemfile
-  - Gemfile.lock
+collections:
+  projects:
+    output: true
+    permalink: /projects/projects.md
+  experience:
+    output: true
+    permalink: /experience/positions.md
+  education:
+    output: true
+    permalink: /education/degrees.md
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: category
+  - scope:
+      path: ""
+      type: experience
+    values:
+      layout: category
+  - scope:
+      path: ""
+      type: education
+    values:
+      layout: category

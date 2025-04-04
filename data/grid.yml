@@ -1,26 +1,39 @@
-cards:
-  - title: "About Me"
-    content: "CSE Undergrad @ GGSIPU, New Delhi, India"
-    style: "background: linear-gradient(45deg, #ff6b6b, #ff8e8e); grid-column: 1 / 3;"
+categories:
+  - title: "Projects"
+    icon: "🎨"
+    collection: projects
+    color: "#ff6b6b"
+    columns: 3
+    entries:
+      - title: "FDE-Turbo"
+        year: 2024
+      - title: "PentaMail"
+        year: 2024
 
-  - title: "Latest Work"
-    content: |
-      - Project 1
-      - Project 2
-      - Project 3
-    style: ""
+  - title: "Experience"
+    icon: "💼"
+    collection: experience
+    color: "#74b9ff"
+    columns: 2
+    entries:
+      - title: "Research Intern"
+        company: "DRDO"
+        duration: "Jan - Jun 2025"
 
-  - title: "Contact"
-    content: |
-      Email: c0ldheat@protonmail.com
-      Telegram : 0xprc
-    style: ""
+  - title: "Education"
+    icon: "🎓"
+    collection: education
+    color: "#55efc4"
+    columns: 2
+    entries:
+      - degree: "B.Tech. Computer Science Engineering"
+        university: "GGSIPU"
+        year: 2023-2027
 
-  - title: "Skills"
-    content: |
-      <div class="skill-chart">
-        <div class="skill-bar" style="width: 80%">Penetration Testing</div>
-        <div class="skill-bar" style="width: 65%">Web Security</div>
-        <div class="skill-bar" style="width: 10%">Malware Analysis</div>
-      </div>
-    style: "background: linear-gradient(45deg, #74b9ff, #a5d8ff); grid-row: 2 / 4; grid-column: 3 / 4;"
+  - title: "Interests"
+    icon: "❤️"
+    color: "#a683e3"
+    items:
+      - "Motorsports"
+      - "Tennis"
+      - "Technology"
