@@ -3,34 +3,54 @@ layout: default
 title: Portfolio
 ---
 
-{% include nav.html %}
+{% for category in site.data.categories.categories %}
+<section id="{{ category.title | downcase }}">
+<div class="category-card" style="border-left-color: {{ category.color }};">
+<h2>{{ category.title }}</h2>
 
-<div class="bento-grid">
-  {% for category in site.data.grid.categories %}
-  <div class="category-card" style="border-left: 5px solid {{ category.color }}">
-    <h2>{{ category.icon }} {{ category.title }}</h2>
+{% for item in category.items %}
+<div class="tile">
+{% if item.title %}
+<h3>{{ item.title }}</h3>
+{% endif %}
 
-    {% if category.collection %}
-      {% assign items = site[category.collection] | sort: 'date' | reverse %}
-      {% for item in items limit:3 %}
-      <div class="entry">
-        <h3>{{ item.title }}</h3>
-        <div class="meta">
-          {% if item.company %}{{ item.company }} •{% endif %}
-          {% if item.duration %}{{ item.duration }}{% else %}{{ item.date | date: "%Y" }}{% endif %}
-        </div>
-        {{ item.excerpt }}
-      </div>
-      {% endfor %}
-      <a href="/{{ category.collection }}" class="see-more">View all {{ category.collection }} →</a>
+{% if item.description %}
+<p>{{ item.description }}</p>
+{% endif %}
 
-    {% elsif category.items %}
-      <ul>
-        {% for item in category.items %}
-        <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </div>
-  {% endfor %}
+{% if item.tech %}
+<p><strong>Tech:</strong> {{ item.tech }}</p>
+{% endif %}
+
+{% if item.impact %}
+<p><strong>Impact:</strong> {{ item.impact }}</p>
+{% endif %}
+
+{% if item.company %}
+<p><strong>Company:</strong> {{ item.company }}</p>
+<p><strong>Duration:</strong> {{ item.duration }}</p>
+<ul>
+{% for achievement in item.achievements %}
+<li>{{ achievement }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if item.degree %}
+<p><strong>Degree:</strong> {{ item.degree }}</p>
+<p><strong>University:</strong> {{ item.university }}</p>
+<p><strong>Year:</strong> {{ item.year }}</p>
+{% endif %}
+
+{% if category.title == "Interests" %}
+<ul>
+{% for interest in category.items %}
+<li>{{ interest }}</li>
+{% endfor %}
+</ul>
+{% endif %}
 </div>
+{% endfor %}
+</div>
+</section>
+{% endfor %}
